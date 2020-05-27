@@ -37,8 +37,8 @@ O Simplex permite que se encontre valores ideais em situações em que diversos 
 Datas | Eventos
 --------- | ------
 19/05/20     | Início do Planejamento
-02/06/20     | Mvp 1, funcionalidades 1 e 2
-09/06/20     | Mvp 2, funcionalidades 3 e 8
+02/06/20     | MVP 1
+09/06/20     | MVP 2
 16/06/20     | Entrega da funcionalidade
 
 ## Tecnologias
