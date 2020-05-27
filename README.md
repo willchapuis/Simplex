@@ -3,7 +3,7 @@
 Repositório para a implementação do algoritmo de calculo para o Simplex.
 
 Projeto de Pesquisa Operacional
-5º Semestre BCC UNIVEM
+5º Semestre BCC UNIVEM (2020)
 
 - William Chapuis Marciano    RA 569720  
 - Leonardo Benini Cruz        RA 581364
