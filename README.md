@@ -15,20 +15,18 @@ O Simplex permite que se encontre valores ideais em situações em que diversos 
 - Python
 - GitHub para versionamento
 
-## Nota de realease a ser publicado
-
 ## Simplex
 
 - Algoritmo Simplex para problemas de maximização.
 - Algoritmo Simplex para problemas de minimização.
-- É exibido o passo a passo das tabelas geradas pelo método Simplex
-- Tabela de Sensibilidade.
+- É exibido o passo a passo (iterações) geradas pelo método Simplex.
+- Tabela de Analise de Sensibilidade.
 
 ## Entradas do Simplex:
 
-- Limite máximo de iterações
-- Tipo de Simplex (MAX ou MIN)
-- Quantidade de variáveis e restrições
+- Tipo de Simplex (MAX ou MIN).
+- Quantidade de variáveis e restrições.
+- Valores das variáveis e restrições.
 
 ## Datas Importantes
 
@@ -42,11 +40,6 @@ Datas | Eventos
 16/06/20     | Entrega da funcionalidade
 
 ## Tecnologias
-
-Tecnologias | Ferramentas
---------- | ------
-Back-End    | 
-Editor de Texto  |  
 
 ## Atividades Realizadas no Período
 
