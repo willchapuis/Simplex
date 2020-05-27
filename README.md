@@ -30,8 +30,6 @@ O Simplex permite que se encontre valores ideais em situações em que diversos 
 
 ## Datas Importantes
 
-## Simplex
-
 Datas | Eventos
 --------- | ------
 19/05/20     | Início do Planejamento
