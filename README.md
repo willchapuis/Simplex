@@ -13,7 +13,6 @@ O Simplex permite que se encontre valores ideais em situações em que diversos 
 ## Ferramentas
 
 - Python
-- GitHub para versionamento
 
 ## Simplex
 
@@ -39,9 +38,7 @@ Datas | Eventos
 
 ## Tecnologias
 
-## Atividades Realizadas no Período
-
-### Simplex
+### Atividades Realizadas
 
 Código | Título | Tarefa | Situação | Observação
 --------- | ------ | -------| -------| -------
