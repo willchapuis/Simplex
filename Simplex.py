@@ -35,11 +35,9 @@ def verificarIteracao(tabela, numvar, numres):
             num = tabela[numres][x]
             pivo[1] = x
     if num != 0:
-        if int(tabela[0][pivo[1]]) != 0:
-            aux = (tabela[0][numvar + numres] / tabela[0][pivo[1]])
-            pivo[0] = 0
+        aux = (tabela[0][numvar + numres] / tabela[0][pivo[1]])
+        pivo[0] = 0
         for y in range(1, numres):
-                if int(tabela[y][pivo[1]]) != 0:
                     if (aux > (tabela[y][numvar + numres] / tabela[y][pivo[1]])):
                         aux = (tabela[y][numvar + numres] / tabela[y][pivo[1]])
                         pivo[0] = y
@@ -98,7 +96,7 @@ if __name__ == '__main__':
     for i in range(0, numvar):
         # if obj:
         #     zOriginal.append(float(input(f'Digite o valor da variavel X{i+1}: ')))
-        #     z.append(zOriginal*-1)
+        #     z.append(zOriginal[i]*-1)
         # else:
             z.append(float(input(f'Digite o valor da variavel X{i + 1}: ')))
     print()
@@ -114,16 +112,24 @@ if __name__ == '__main__':
         print()
     print()
 
+    result = bool(int(input('Resultado final(0) ou só Passo a Passo(1) ? ')))
+    print()
+
     ### Tabela Inicial
     iterac.append(montarTabela(numvar, numres, res, b, z))
-    print('Solucao basica inicial:')
-    printaTabela(iterac[len(iterac)-1], numvar, numres)
 
     ### Iteracoes
     terminou = False
     while (terminou != True):
-        iterac.append(iteracao(iterac[len(iterac)-1], numvar, numres))
-        if (iterac[len(iterac)-2] != iterac[len(iterac)-1]):            ### caso esteja na resposta final chamar a função iteracao só vai retornar a tabela novamente
-            print(f'Iteracao {len(iterac)-1}:')
-            printaTabela(iterac[len(iterac)-1], numvar, numres)
-        else: terminou = True
+        iterac.append(iteracao(iterac[len(iterac)-1], numvar, numres))             ### quando nao tem solução melhor retorna a tabela de volta
+        if (iterac[len(iterac)-2] == iterac[len(iterac)-1]):                       ### Se for a mesma tabela sai do loop
+            terminou = True
+
+    if result:
+        print('Solucao basica inicial:')
+        printaTabela(iterac[0], numvar, numres)
+        for i in range(1, (len(iterac) -2)):
+            print(f'Iteracao {i}:')
+            printaTabela(iterac[i], numvar, numres)
+    print('Solucao Final:')
+    printaTabela(iterac[len(iterac)-1], numvar, numres)
