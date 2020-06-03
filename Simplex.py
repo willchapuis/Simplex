@@ -35,11 +35,21 @@ def verificarIteracao(tabela, numvar, numres):
             num = tabela[numres][x]
             pivo[1] = x
     if num != 0:
-        aux = (tabela[0][numvar + numres] / tabela[0][pivo[1]])
-        pivo[0] = 0
-        for y in range(1, numres):
-                    if (aux > (tabela[y][numvar + numres] / tabela[y][pivo[1]])):
-                        aux = (tabela[y][numvar + numres] / tabela[y][pivo[1]])
+        try:
+            r = (tabela[0][numvar + numres] / tabela[0][pivo[1]])
+        except Exception as erro:
+            print(f'Problema {erro.__class__} na linha 39')
+        else:
+            pivo[0] = 0
+            for y in range(0, numres):
+                try:
+                    aux = (tabela[y][numvar + numres] / tabela[y][pivo[1]])
+                except Exception as erro:
+                    continue
+                    # print(f'Problema {erro.__class__} na linha 46')
+                else:
+                    if (r > aux):
+                        r = aux
                         pivo[0] = y
     return pivo
 
@@ -84,20 +94,19 @@ if __name__ == '__main__':
     iterac = []
 
     numvar = int(input('Digite o numero de variaveis de decisao: '))
-    print()
     numres = int(input('Digite o numero de restricoes: '))
     print()
 
+    obj = bool(int(input('MAX(1) ou MIN(0) ? ')))
+    print()
     print('Funcao Objetivo:')
-    # obj = bool(int(input('MAX(1) ou MIN(0) ? ')))
-    # print()
-    # if obj != True:
-    #     zOriginal = []
+    if obj != True:
+        zOriginal = []
     for i in range(0, numvar):
-        # if obj:
-        #     zOriginal.append(float(input(f'Digite o valor da variavel X{i+1}: ')))
-        #     z.append(zOriginal[i]*-1)
-        # else:
+        if obj:
+            zOriginal.append(float(input(f'Digite o valor da variavel X{i+1}: ')))
+            z.append(zOriginal[i]*-1)
+        else:
             z.append(float(input(f'Digite o valor da variavel X{i + 1}: ')))
     print()
 
