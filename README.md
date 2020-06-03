@@ -42,10 +42,10 @@ Datas | Eventos
 
 Código | Título | Tarefa | Situação | Observação
 --------- | ------ | -------| -------| -------
-1 | Maximizar | Montar a Tabela Simplex, e possibilitar o usuário a maximizar modelos de simplex com sistemas lineares. | - | Apenas restrições de “<=”
-2 | Permite múltiplas de variáveis e restrições | Permite a escolha das variaveis e restrições ao usuario | - | -
-3 | Exibir matriz com resultado final | Mostrar ao usuário, o resultado ótimo | - | -
+1 | Maximizar | Montar a Tabela Simplex, e possibilitar o usuário a maximizar modelos de simplex com sistemas lineares. | Concluido | Apenas restrições de “<=”
+2 | Permite múltiplas de variáveis e restrições | Permite a escolha das variaveis e restrições ao usuario | Concluido | -
+3 | Exibir matriz com resultado final | Mostrar ao usuário, o resultado ótimo | Concluido | -
 4 | Minimizar | Montar a Tabela Simplex, e possibilitar o usuário a minimizar modelos de simplex com sistemas lineares. | - | Apenas restrições de “<=”
-5 | Demonstrar passo a passo | Demonstrar ao usuário as iterações do método simplex. | - | -
+5 | Demonstrar passo a passo | Demonstrar ao usuário as iterações do método simplex. | Concluido | -
 6 | Analise de Sensibilidade | Mostrar ao usuário a tabela de analise de sensibilidade | - | -
 7 | Tratamento de Solução impossivel | Informar ao usuário quando a solução é impossivel | - | -
