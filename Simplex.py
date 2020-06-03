@@ -28,20 +28,22 @@ def montarTabela(numvar, numres, res, b, z):
 
 def verificarIteracao(tabela, numvar, numres):
     num = 0
-    ### it guarda a linha(y) que entra e a coluna(x) que sai
-    it = [-1, -1]
+    ### pivo guarda a linha(y) que entra e a coluna(x) que sai
+    pivo = [-1, -1]
     for x in range(0, ((numvar + numres) + 1)):
         if (tabela[numres][x] < 0) and (tabela[numres][x] < num):
             num = tabela[numres][x]
-            it[1] = x
+            pivo[1] = x
     if num != 0:
-        aux = (tabela[0][numvar + numres] / tabela[0][it[1]])
-        it[0] = 0
+        if int(tabela[0][pivo[1]]) != 0:
+            aux = (tabela[0][numvar + numres] / tabela[0][pivo[1]])
+            pivo[0] = 0
         for y in range(1, numres):
-            if ((tabela[y][numvar + numres] / tabela[y][it[1]]) < aux):
-                aux = (tabela[y][numvar + numres] / tabela[y][it[1]])
-                it[0] = y
-    return it
+                if int(tabela[y][pivo[1]]) != 0:
+                    if (aux > (tabela[y][numvar + numres] / tabela[y][pivo[1]])):
+                        aux = (tabela[y][numvar + numres] / tabela[y][pivo[1]])
+                        pivo[0] = y
+    return pivo
 
 def iteracao(oldTabela, numvar, numres):
     pivo = verificarIteracao(oldTabela, numvar, numres)
@@ -85,6 +87,8 @@ if __name__ == '__main__':
 
     numvar = int(input('Digite o numero de variaveis de decisao: '))
     print()
+    numres = int(input('Digite o numero de restricoes: '))
+    print()
 
     print('Funcao Objetivo:')
     # obj = bool(int(input('MAX(1) ou MIN(0) ? ')))
@@ -97,9 +101,6 @@ if __name__ == '__main__':
         #     z.append(zOriginal*-1)
         # else:
             z.append(float(input(f'Digite o valor da variavel X{i + 1}: ')))
-    print()
-
-    numres = int(input('Digite o numero de restricoes: '))
     print()
 
     aux = []
