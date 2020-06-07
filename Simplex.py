@@ -35,22 +35,17 @@ def verificarIteracao(tabela, numvar, numres):
             num = tabela[numres][x]
             pivo[1] = x
     if num != 0:
-        try:
-            r = (tabela[0][numvar + numres] / tabela[0][pivo[1]])
-        except Exception as erro:
-            print(f'Problema {erro.__class__} na linha 39')
-        else:
-            pivo[0] = 0
-            for y in range(0, numres):
-                try:
-                    aux = (tabela[y][numvar + numres] / tabela[y][pivo[1]])
-                except Exception as erro:
-                    continue
-                    # print(f'Problema {erro.__class__} na linha 46')
-                else:
-                    if (r > aux):
-                        r = aux
-                        pivo[0] = y
+        r = 0
+        for y in range(0, numres):
+            try:
+                aux = (tabela[y][numvar + numres] / tabela[y][pivo[1]])
+            except Exception as erro:
+                continue
+                # print(f'Problema {erro.__class__} na linha 46')
+            else:
+                if (r > aux) or (r == 0):
+                    r = aux
+                    pivo[0] = y
     return pivo
 
 def iteracao(oldTabela, numvar, numres):
@@ -146,8 +141,12 @@ if __name__ == '__main__':
         if result:
             print('Solucao basica inicial:')
             printaTabela(iterac[0], numvar, numres)
+            input('Pressione qualquer tecla para continuar...')
+            print()
             for i in range(1, (len(iterac) -2)):
                 print(f'Iteracao {i}:')
                 printaTabela(iterac[i], numvar, numres)
+                input('Pressione qualquer tecla para continuar...')
+                print()
         print('Solucao Final:')
         printaTabela(iterac[len(iterac)-1], numvar, numres)
