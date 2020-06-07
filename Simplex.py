@@ -81,12 +81,14 @@ def printaTabela(tabela, numvar, numres):
 if __name__ == '__main__':
     ### numvar é o numero de variaveis de decisão(produtos)
     ### numres é o numero de restrições
-    ### obj é booleano, se a função objetivo é MIN(false) ou MAX(true)
+    ### obj é booleano, se a função objetivo é: MIN(false) ou MAX(true)
     ### z é uma lista com os valores de cada variavel na função objetivo
     ### b é uma lista com os valores limites de cada restrição (<=)
     ### res é uma lista com os valores de cada variavel em cada restrição
+    ### imp é booleano, pra saber se é uma solução: possivel(false) ou impossivel(true)
+    ### result é booleano, se deve apresentar o resultado: final(false) ou passo a passo(true)
     ### iterac é uma lista com as matrizes/tabelas feitas
-    ### terminou é pra saber quando chegou na resposta final
+    ### terminou é booleano, pra saber quando chegou na resposta final(true)
 
     z = []
     b = []
@@ -104,10 +106,10 @@ if __name__ == '__main__':
         zOriginal = []
     for i in range(0, numvar):
         if obj:
-            zOriginal.append(float(input(f'Digite o valor da variavel X{i+1}: ')))
-            z.append(zOriginal[i]*-1)
-        else:
             z.append(float(input(f'Digite o valor da variavel X{i + 1}: ')))
+        else:
+            zOriginal.append(float(input(f'Digite o valor da variavel X{i + 1}: ')))
+            z.append(zOriginal[i] * -1)
     print()
 
     aux = []
@@ -119,26 +121,33 @@ if __name__ == '__main__':
         res.append(aux[:])
         aux.clear()
         print()
-    print()
 
-    result = bool(int(input('Resultado final(0) ou só Passo a Passo(1) ? ')))
-    print()
+    imp = False
+    for i in range(0, len(b)):
+        if b[i] < 0:
+            imp = True
 
-    ### Tabela Inicial
-    iterac.append(montarTabela(numvar, numres, res, b, z))
+    if imp:
+        print('Solução Impossivel!')
+    else:
+        result = bool(int(input('Resultado final(0) ou só Passo a Passo(1) ? ')))
+        print()
 
-    ### Iteracoes
-    terminou = False
-    while (terminou != True):
-        iterac.append(iteracao(iterac[len(iterac)-1], numvar, numres))             ### quando nao tem solução melhor retorna a tabela de volta
-        if (iterac[len(iterac)-2] == iterac[len(iterac)-1]):                       ### Se for a mesma tabela sai do loop
-            terminou = True
+        ### Tabela Inicial
+        iterac.append(montarTabela(numvar, numres, res, b, z))
 
-    if result:
-        print('Solucao basica inicial:')
-        printaTabela(iterac[0], numvar, numres)
-        for i in range(1, (len(iterac) -2)):
-            print(f'Iteracao {i}:')
-            printaTabela(iterac[i], numvar, numres)
-    print('Solucao Final:')
-    printaTabela(iterac[len(iterac)-1], numvar, numres)
+        ### Iteracoes
+        terminou = False
+        while (terminou != True):
+            iterac.append(iteracao(iterac[len(iterac)-1], numvar, numres))             ### quando nao tem solução melhor retorna a tabela de volta
+            if (iterac[len(iterac)-2] == iterac[len(iterac)-1]):                       ### Se for a mesma tabela sai do loop
+                terminou = True
+
+        if result:
+            print('Solucao basica inicial:')
+            printaTabela(iterac[0], numvar, numres)
+            for i in range(1, (len(iterac) -2)):
+                print(f'Iteracao {i}:')
+                printaTabela(iterac[i], numvar, numres)
+        print('Solucao Final:')
+        printaTabela(iterac[len(iterac)-1], numvar, numres)
