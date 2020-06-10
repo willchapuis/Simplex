@@ -42,7 +42,7 @@ def verificarIteracao(tabela, numvar, numres):
             except Exception:
                 continue
             else:
-                if (r > aux) or (r == 0):
+                if (r > aux or r == 0) and aux > 0:
                     r = aux
                     pivo[0] = y
     return pivo
