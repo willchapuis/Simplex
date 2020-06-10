@@ -193,7 +193,7 @@ def analiseSensibilidade(tabelas, numvar, numres):
                         analise[y][i] = abs(AR[1])                  #   Para nao ficar com o valor negativo
                     else:
                         analise[y][i] = analise[y][1] + AR[1]       #   Somar porque o valor de AR[1] esta negativo oque vai resultar em uma subtração
-    else:
+        else:
             for i in range(9, 13):
                 analise[y][i] = '-'
 
@@ -285,6 +285,12 @@ if __name__ == '__main__':
                 print()
         print('Solucao Final:')
         printaTabela(iterac[len(iterac) - 1], (numvar + numres) + 1, (numres + 1))
+
+        if obj:
+            print(f'O maior vaior de Z sera = {iterac[len(iterac)-1][numres][numvar + numres]}')
+        else:
+            print(f'O menor vaior de Z sera = {iterac[len(iterac) - 1][numres][numvar + numres] * -1}')
+        print()
 
         analisa = bool(int(input('Deseja Analise de Sensibilidade(1) ou Não(0) ? ')))
         if analisa:
