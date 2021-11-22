@@ -5,7 +5,7 @@ Repositório para a implementação do algoritmo de calculo para o Simplex.
 Projeto de Pesquisa Operacional
 5º Semestre BCC UNIVEM (2020)
 
-- William Chapuis Marciano    RA 569720  
+- William Chapuis Marciano    RA 576591  
 - Leonardo Benini Cruz        RA 581364
 
 O Simplex permite que se encontre valores ideais em situações em que diversos aspectos precisam ser respeitados. Diante de um problema, são estabelecidas inequações que representam restrições para as variáveis. A partir daí, testa-se possibilidades de maneira a otimizar, isto é, maximizar ou minimizar o resultado da forma mais rápida possível.
